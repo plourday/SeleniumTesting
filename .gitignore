@@ -1,6 +1,13 @@
 # Compiled class file
 *.class
 
+# src Test Folder
+/Users/andrewplourde/IdeaProjects/Selenium Testing/src Test
+
+
+#Default ignored
+/Users/andrewplourde/IdeaProjects/Selenium Testing/.idea/workspace.xml/workspace.xml
+
 # Log file
 *.log
 
