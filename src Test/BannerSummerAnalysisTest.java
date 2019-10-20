@@ -1,6 +1,7 @@
 import com.thoughtworks.xstream.XStream;
 import org.apache.commons.io.FileUtils;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -67,7 +68,17 @@ public class BannerSummerAnalysisTest {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        //Tests to check if there are students registered for each summer semester in each year.
+        Assert.assertEquals(1001, Double.parseDouble(xmlList.get(0)), 1000);
+        Assert.assertEquals(1001, Double.parseDouble(xmlList.get(1)), 1000);
+        Assert.assertEquals(1001, Double.parseDouble(xmlList.get(2)), 1000);
+        Assert.assertEquals(1001, Double.parseDouble(xmlList.get(3)), 1000);
+        Assert.assertEquals(1001, Double.parseDouble(xmlList.get(4)), 1000);
+        Assert.assertEquals(1001, Double.parseDouble(xmlList.get(5)), 1000);
+        Assert.assertEquals(1001, Double.parseDouble(xmlList.get(6)), 1000);
+        Assert.assertEquals(1001, Double.parseDouble(xmlList.get(7)), 1000);
+        Assert.assertEquals(1001, Double.parseDouble(xmlList.get(8)), 1000);
+        Assert.assertEquals(1001, Double.parseDouble(xmlList.get(9)), 1000);
     }
 
 
@@ -136,6 +147,7 @@ public class BannerSummerAnalysisTest {
         }
         //Creates the XML File with the DAta aquired from the URL.
         createXMLFile();
+        Assert.assertEquals(10, xmlList.size(), 0);
     }
 
 
