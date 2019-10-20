@@ -1,8 +1,5 @@
 import com.thoughtworks.xstream.XStream;
 import org.apache.commons.io.FileUtils;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -14,31 +11,30 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class BannerSummerAnalysisTest {
+public class BannerSummerAnalysis {
 
     private static WebDriver driver;
     private ArrayList<String> list = new ArrayList<>();
     private ArrayList<String> xmlList = new ArrayList<>();
     private ArrayList<item> formatList = new ArrayList<>();
 
+    //Before class to set up the chromdriver
 
-    @BeforeClass
     public static void
     setUpChrome() {
         System.setProperty("webdriver.chrome.driver", "/Users/andrewplourde/Desktop/chromedriver");
         driver = new ChromeDriver();
     }
 
-    @AfterClass
+    //Closes Driver after running the application
+
     public static void cleanUp() {
         driver.close();
 
     }
 
 
-    @Test
     public void createXMLFile() {
-
         //Create an xml file
         File file = new File("xmlfileforanalysis.xml");
 
@@ -70,11 +66,10 @@ public class BannerSummerAnalysisTest {
 
     }
 
-
-    @Test
-    //Large For loop that runs through the GGC Banner Website and scrapes each Summer IT course for the number of students
-    // that were registered for that particular course.
     public void analysis() {
+        //Large For loop that runs through the GGC Banner Website and scrapes each Summer IT course for the number of students
+        // that were registered for that particular course.
+
         //Ten iterations for 2010 - 2019
         for (int i = 1; i <= 10; i++) {
             //Set an iterator so the Driver can find the year to select in the dropdown
@@ -141,7 +136,7 @@ public class BannerSummerAnalysisTest {
 
 }
 
-//Helper class for the external library
+//Helper clas for the external library to format the xml
 class item {
     private int number;
     private int year;
